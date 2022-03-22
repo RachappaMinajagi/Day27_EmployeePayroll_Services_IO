@@ -1,9 +1,19 @@
 
 import java.util.Arrays;
 import org.junit.Test;
+
+import employeePayrollServices.EmployeePayRollImpl.IOService;
+import employeePayrollServices.EmployeePayrollData;
+import employeePayrollServices.EmployeePayrollService;
+
 import org.junit.Assert;
 
 public class EmployeePayrollServiceTest {
+	
+	/*
+	 * long entries=employeePayrollService.countEntries(IOService.FILE_IO);
+	 * Assert.assertEquals(3, entries);
+	 */
 	@Test
 	public void given3EmployeesWhenWrittenToFileShouldMatchEmployeeEntries() {
 		EmployeePayrollData[] arrayOfEmps= {
@@ -12,18 +22,10 @@ public class EmployeePayrollServiceTest {
 				new EmployeePayrollData(3,"Fredich Karl", 90000)
 		};
 		EmployeePayrollService employeePayrollService;
-		employeePayrollService=new EmployeePayrollService(Arrays.asList(arrayOfEmps));
-		employeePayrollService.writeEmployeePayrollData(IOService.FILE_IO);
+		employeePayrollService=new EmployeePayrollService();
+		employeePayrollService.writeEmployeePayrollData();
 		employeePayrollService.printData(IOService.FILE_IO);
-		long entries=employeePayrollService.countEntries(IOService.FILE_IO);
-		Assert.assertEquals(3, entries);
-	}
-	
-	@Test
-	public void givenFileOnReadingFormatFileShouldMatchEmployeeCount() {
-		EmployeePayrollService employeePayrollService=new EmployeePayrollService();
-		long entries= employeePayrollService.readEmployeePayrollData(IOService.FILE_IO);
-		Assert.assertEquals(3, entries);
+		
 	}
 
 }

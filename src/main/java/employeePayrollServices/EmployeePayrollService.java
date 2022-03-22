@@ -9,8 +9,13 @@ package employeePayrollServices;
          - Create Directory
          - Create Empty File
          - List Files, Directories as well as Files with Extension
-    UC3:-Create a Watch Service to watch particular directory along with all Files and
+ *UC3:-Create a Watch Service to watch particular directory along with all Files and
           Sub Directories - Using File IO Count Number of Entries in the file    
+ *UC4:-Create an Employee Payroll Service to store Employee Payroll into a File 
+ *     - Create Employee Payroll Class of id, name and Salary 
+ *     - Populate Test Employee Payroll Object 
+ *     - Write Employee Payroll to File Use File IO 
+ *     - Count Number of Entries to ensure the Operation worked
  */
 
 import java.util.ArrayList;
@@ -55,6 +60,19 @@ public class EmployeePayrollService {
 
 	public void writeEmployeePayrollData() {
 		System.out.println("\nWriting Employee Payroll to console\n" + employeePayrollList);
+	}
+
+	public void printData(IOService ioService) {
+		if (ioService.equals(IOService.FILE_IO))
+			new EmployeePayrollFileIOService().printData();
+
+	}
+
+	public long countEntries(IOService ioService) {
+		long entries = 0;
+		if (ioService.equals(IOService.FILE_IO))
+			entries = new EmployeePayrollFileIOService().countEntries();
+		return entries;
 	}
 
 }
