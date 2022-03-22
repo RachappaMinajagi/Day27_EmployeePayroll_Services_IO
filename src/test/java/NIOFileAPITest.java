@@ -23,10 +23,12 @@ public class NIOFileAPITest {
 		 * delete file and check file not exists
 		 */
 		Path playPath = Paths.get(HOME + "/" + PLAY_WITH_NIO);
-		/*
-		 * if(Files.exists(playPath)) FileUtils.deleteFiles(playPath.toFile());
-		 * Assert.assertTrue(Files.notExists(homePath));
-		 */
+		Path p = Paths.get(HOME + "/playDelete.txt");
+		Assert.assertFalse(Files.exists(p));
+		Files.createFile(p);
+		Assert.assertTrue(Files.exists(p));
+		Files.delete(p);
+		Assert.assertFalse(Files.exists(p));
 
 		/**
 		 * create directory
@@ -35,7 +37,7 @@ public class NIOFileAPITest {
 		Assert.assertTrue(Files.exists(playPath));
 
 		/**
-		 * create File
+		 * / create File
 		 */
 		IntStream.range(1, 10).forEach(cntr -> {
 			Path tempFile = Paths.get(playPath + "/temp" + cntr);
