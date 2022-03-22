@@ -18,6 +18,9 @@ package employeePayrollServices;
  *     - Count Number of Entries to ensure the Operation worked
  *UC5:- Ability for Employee Payroll Service to print the Employee Payrolls 
  *      - Using File IO print the lines in the Payroll File - Count Number of Entries to ensure the Operation   
+ *UC6:- Ability for Employee Payroll Service to read the Employee Payroll File
+        so that some analysis can be performed
+        - Using the file IO Read the File 
  */
 
 import java.util.ArrayList;
@@ -34,6 +37,7 @@ public class EmployeePayrollService {
 	public EmployeePayrollService() {
 		employeePayrollList = new ArrayList<>();
 	}
+
 	/**
 	 * Create a Constructor
 	 */
