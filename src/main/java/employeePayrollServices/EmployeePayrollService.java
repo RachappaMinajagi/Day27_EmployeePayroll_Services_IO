@@ -16,6 +16,8 @@ package employeePayrollServices;
  *     - Populate Test Employee Payroll Object 
  *     - Write Employee Payroll to File Use File IO 
  *     - Count Number of Entries to ensure the Operation worked
+ *UC5:- Ability for Employee Payroll Service to print the Employee Payrolls 
+ *      - Using File IO print the lines in the Payroll File - Count Number of Entries to ensure the Operation   
  */
 
 import java.util.ArrayList;
@@ -31,6 +33,15 @@ public class EmployeePayrollService {
 
 	public EmployeePayrollService() {
 		employeePayrollList = new ArrayList<>();
+	}
+	/**
+	 * Create a Constructor
+	 */
+
+	public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList) {
+		employeePayrollList = new ArrayList<>();
+		this.employeePayrollList = employeePayrollList;
+
 	}
 
 	/**
